@@ -13,6 +13,12 @@
 * Вывести содержимое переменной на экран
 
 """
+def occupation(age):
+   if age<0 or age>120: return 'error'
+   elif age>0 and age<6: return 'daycare'
+   elif age>6 and age<18: return 'school'
+   elif age>18 and age<22: return 'university'
+   elif age>22 and age<120: return 'work'
 
 def main():
     """
@@ -20,6 +26,7 @@ def main():
     В ней надо заменить pass на ваш код
     """
     age=int(input('Введите возраст '))
+    print(occupation(age))
 
 if __name__ == "__main__":
     main()
