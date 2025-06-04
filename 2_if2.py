@@ -14,13 +14,21 @@
   и выводя на экран результаты
 
 """
+def compare_strings(a,b):
+  if type (a) != str or type (b) != str: return 0
+  elif a==b: return 1
+  elif a!=b and b=="learn": return 3
+  elif a!=b and len(a)>len(b): return 2
 
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    print(compare_strings(1, 2))
+    print(compare_strings('привет', 'привет'))
+    print(compare_strings('привет', 'пока'))
+    print(compare_strings('привет', 'learn'))
     
 if __name__ == "__main__":
     main()
