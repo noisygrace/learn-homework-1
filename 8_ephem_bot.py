@@ -12,6 +12,7 @@
   бота отвечать, в каком созвездии сегодня находится планета.
 
 """
+
 import logging
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -19,15 +20,6 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
                     filename='bot.log')
-
-
-PROXY = {
-    'proxy_url': 'socks5://t1.learn.python.ru:1080',
-    'urllib3_proxy_kwargs': {
-        'username': 'learn',
-        'password': 'python'
-    }
-}
 
 
 def greet_user(update, context):
@@ -43,7 +35,8 @@ def talk_to_me(update, context):
 
 
 def main():
-    mybot = Updater("КЛЮЧ, КОТОРЫЙ НАМ ВЫДАЛ BotFather", request_kwargs=PROXY, use_context=True)
+    logging.info("Бот стартовал")
+    mybot = Updater(token=TOKEN)
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
